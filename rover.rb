@@ -13,16 +13,6 @@ class Rover
 	end
 
 
-	def read_instruction(input)
-		if input == "L" || input == "R"
-			turn(input)
-		elsif input == "M"
-			move
-		else
-			puts "This is an invalid action."
-		end
-	end
-
 	def move(input)
 		if input == "N"
 			puts "[#{@x}, #{@y + 1}]"
@@ -37,15 +27,43 @@ class Rover
 		end
 	end
 
-# 	def turn(input)
-# 		if input == "L"
-# 			@y - 1
-# 		elsif input == "R"
-# 			@position + 1
-# 		else
-# 			puts "Your rover cannot turn."
-# 		end
-# end
+
+	def read(input)
+		if input == "L" || input == "R"
+			turn(input)
+		elsif input == "M"
+			move
+		else
+			puts "This is an invalid action."
+		end
+	end
+
+
+		def turn(input)
+		if input == "L"
+			if @direction == "W"
+				@direction = "S"
+			elsif @direction == "S"
+				@direction = "E"
+			elsif @direction == "E"
+				@direction = "N"
+			else @direction == "N"
+				@direction = "W"
+			end
+		elsif input == "R"
+				if @direction == "W"
+					@direction = "N"
+				elsif @direction == "N"
+					@direction = "E"
+				elsif @direction == "E"
+					@direction = "S"
+				else @direction == "S"
+					@direction = "W"
+				end
+		else
+			puts "Your rover cannot turn."
+		end
+end
 end
 
 
