@@ -13,6 +13,17 @@ class Rover
 	end
 
 
+	def read(input)
+		if input == "L" || input == "R"
+			turn(input)
+		elsif input == "M"
+			move
+		else
+			puts "This is an invalid action."
+		end
+	end
+
+
 	def move(input)
 		if input == "N"
 			puts "[#{@x}, #{@y + 1}]"
@@ -26,18 +37,6 @@ class Rover
 				puts "This action is invalid. Please enter a direction."
 		end
 	end
-
-
-	def read(input)
-		if input == "L" || input == "R"
-			turn(input)
-		elsif input == "M"
-			move
-		else
-			puts "This is an invalid action."
-		end
-	end
-
 
 		def turn(input)
 		if input == "L"
@@ -65,6 +64,18 @@ class Rover
 		end
 end
 end
+
+class Plateau
+	def initialize(x_width, y_height)
+		@x_width = x_width
+		@y_height = y_height
+	end
+
+	def size_info
+		puts "This plateau is #{@x_width} by #{@y_height}."
+	end
+end
+
 
 
 
